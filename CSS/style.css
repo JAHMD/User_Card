@@ -1,0 +1,304 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800;900&display=swap");
+:root {
+  --main-color: #2eca7f;
+  --titles-color: #3a4046;
+  --text-color: #3f454b;
+  --main-padding: 30px;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Nunito", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #99d6b9;
+}
+.container {
+  width: 1000px;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: white;
+}
+/* Start header */
+.container header {
+  padding: 15px var(--main-padding);
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--main-color);
+  color: white;
+}
+.container header .profile-info {
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 768px) {
+  .container header {
+    flex-direction: column;
+    align-items: center;
+  }
+  .container header .profile-info {
+    margin-bottom: 20px;
+  }
+  .container header .social p {
+    text-align: center;
+  }
+}
+.container header .profile-info img {
+  width: 80px;
+  margin-right: 15px;
+  border-radius: 50%;
+}
+.container header .profile-info .info {
+  text-transform: capitalize;
+  letter-spacing: 1px;
+}
+.container header .profile-info .info h3 {
+  font-weight: 800;
+  font-size: 25px;
+}
+.container header .profile-info .info p {
+  font-size: 14px;
+}
+.container header .social p {
+  margin-bottom: 5px;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+.container header .social ul {
+  display: flex;
+  list-style: none;
+}
+.container header .social ul li a {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  background-color: white;
+  color: var(--main-color);
+  transition: color 0.3s;
+}
+.container header .social ul li:nth-child(1) a:hover {
+  color: #1771e6;
+}
+.container header .social ul li:nth-child(2) a:hover {
+  color: #1c99e6;
+}
+.container header .social ul li:nth-child(3) a:hover {
+  color: #833ab4;
+}
+.container header .social ul li:nth-child(4) a:hover {
+  color: orange;
+}
+.container header .social ul li:nth-child(5) a:hover {
+  color: black;
+}
+.container header .social ul li:not(:last-child) a {
+  margin-right: 10px;
+}
+/* End header */
+/* Start content */
+.container .content {
+  padding: var(--main-padding);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.container .content .list {
+  /* width: 120px; */
+  position: relative;
+}
+.container .content .list::before {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: calc(100% + 60px);
+  top: -30px;
+  right: 0;
+  background-color: #e4fcf0;
+}
+.container .content .list li {
+  padding: 20px 0;
+  list-style: none;
+  text-transform: capitalize;
+  color: var(--titles-color);
+  position: relative;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.container .content .list li.active,
+.container .content .list li:hover {
+  color: var(--main-color);
+}
+.container .content .list li:hover::before,
+.container .content .list li.active::before {
+  width: 15px;
+}
+.container .content .list li::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: var(--main-color);
+  left: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 2px;
+  transition: 0.3s;
+}
+.container .content .list li i {
+  width: 20px;
+  margin-right: 10px;
+}
+@media (max-width: 768px) {
+  .container .content {
+    padding: 20px 0 30px;
+  }
+  .content .list {
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .content .list::before {
+    display: none;
+  }
+  .content .list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #d5f7e6;
+  }
+  .content .list li.active,
+  .content .list li:hover {
+    border-bottom: 1px solid #91ebbe;
+  }
+  .content .pic {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 0 20px;
+    text-align: center;
+  }
+  .content .pic img {
+    max-width: 100%;
+  }
+  .container .content .about {
+    width: 100%;
+    padding: 0 20px;
+  }
+}
+@media (min-width: 768px) {
+  .content .list {
+    width: 120px;
+  }
+}
+@media (min-width: 768px) and (max-width: 992px) {
+  .content .pic {
+    margin: 0 auto;
+  }
+  .content .pic img {
+    width: 350px;
+  }
+  .container .content .about {
+    width: 100%;
+    margin-top: 30px;
+    border-top: 1px solid #d5f7e6;
+  }
+}
+@media (min-width: 992px) {
+  .container .content .about {
+    width: 40%;
+  }
+}
+.container .content .about h3 {
+  width: fit-content;
+  margin-bottom: 30px;
+  padding: 5px 0;
+  font-size: 22px;
+  font-weight: 900;
+  text-transform: capitalize;
+  color: var(--titles-color);
+  position: relative;
+}
+.container .content .about h3::after,
+.container .content .about h3::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: var(--main-color);
+}
+.container .content .about h3::after {
+  width: 100%;
+  height: 1px;
+}
+.container .content .about h3::before {
+  width: 45px;
+  height: 8px;
+  transform: translateY(50%);
+  border-radius: 10px;
+}
+.container .content .about p {
+  margin-bottom: 20px;
+  line-height: 1.8;
+  font-size: 14px;
+  color: var(--text-color);
+}
+.container .content .about .contact {
+  margin-bottom: 20px;
+}
+.container .content .about .contact li {
+  list-style: none;
+  font-weight: bold;
+  color: var(--titles-color);
+}
+.container .content .about .contact li:not(:last-child) {
+  margin-bottom: 10px;
+}
+.container .content .about .contact li span {
+  font-weight: normal;
+  color: var(--text-color);
+}
+.container .content .about a {
+  padding: 10px 15px;
+  border-radius: 5px;
+  display: inline-block;
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  background-color: var(--main-color);
+  transition: 0.3s;
+  position: relative;
+}
+.container .content .about a::before {
+  content: "\f054";
+  position: absolute;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--main-color);
+  transition: 0.3s;
+}
+.container .content .about a:hover::before {
+  transform: translate(20px, -50%);
+}
+.container .content .about a i {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  color: var(--main-color);
+}
+/* End content */
